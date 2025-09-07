@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Digital - Agencia de Marketing Digital, Branding y Diseño Web</title>
+    <meta name="description" content="Glowing Digital es una agencia de marketing en Málaga. Ofrecemos estrategias de redes sociales, branding, diseño web y producción audiovisual. Hacemos que tu marca brille.">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="#" class="logo">Glowing Digital</a>
+            <!-- Botón para el menú de hamburguesa -->
+            <button class="nav-toggle" aria-label="abrir menú de navegación">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#portfolio">Portafolio</a></li>
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#contact" class="btn-contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+    <div class="video-background">
+        <video autoplay muted loop playsinline poster="imagenes-web/logo.jpg">
+            <source src="./imagenes-web/introweb2.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+        </video>
+    </div>
+    <div class="container hero-content">
+        <h1>Hacemos que tu marca brille.</h1>
+        <p>Estrategias de marketing digital, diseño web, branding y producción audiovisual que conectan con tu audiencia.</p>
+        <a href="#contact" class="btn btn-primary">¡Hablemos de tu proyecto!</a>
+    </div>
+</section>
+
+       <div id="services" class="services-grid">
+    <div class="service-item">
+        <div class="service-icon">
+            <i class="fas fa-share-alt"></i>
+        </div>
+        <h3>Gestión de Redes Sociales</h3>
+        <p>Estrategias que construyen comunidades, generan interacción y convierten seguidores en clientes leales.</p>
+    </div>
+    
+    <div class="service-item">
+        <div class="service-icon">
+            <i class="fas fa-gem"></i>
+        </div>
+        <h3>Branding</h3>
+        <p>Creamos identidades de marca memorables que transmiten tu esencia y te diferencian de la competencia.</p>
+    </div>
+    
+    <div class="service-item">
+        <div class="service-icon">
+            <i class="fas fa-film"></i>
+        </div>
+        <h3>Producción Audiovisual</h3>
+        <p>Transformamos ideas en videos de alta calidad que cuentan tu historia, conectan con tu audiencia y generan impacto.</p>
+    </div>
+    
+    <div class="service-item">
+        <div class="service-icon">
+            <i class="fas fa-code"></i>
+        </div>
+        <h3>Diseño de Páginas Web</h3>
+        <p>Diseñamos y desarrollamos sitios web elegantes y funcionales que no solo se ven bien, sino que también funcionan para tu negocio.</p>
+    </div>
+</div>
+
+        <section id="portfolio" class="portfolio-full">
+    <div class="container">
+        <h2 class="section-title">Portafolio</h2>
+        <p class="section-subtitle">Descubre el impacto y la creatividad de nuestros últimos proyectos.</p>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item visible" data-id="project-1">
+                <video autoplay muted loop playsinline poster="./imagenes-web/logo.jpg">
+                    <source src="./imagenes-web/burger-bruncheo.mp4" type="video/mp4">
+                    Tu navegador no sopporta el video.
+                </video>
+                <div class="overlay">
+                    <div class="item-details">
+                        <h3>Campaña de Video</h3>
+                        <p>Producción Audiovisual</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item visible" data-id="project-2">
+                <img src="./imagenes-web/IMG_0968.jpg" alt="Proyecto Gastronómico">
+                <div class="overlay">
+                    <div class="item-details">
+                        <h3>Fotografía Gastronómica</h3>
+                        <p>Producción Gastronómica para Restaurante </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item visible" data-id="project-3">
+                <img src="./imagenes-web/1A4A0334.jpg" alt="Proyecto de Espacios que Respiran">
+                <div class="overlay">
+                    <div class="item-details">
+                        <h3>Fotografía de Ambiente en Vivero</h3>
+                        <p>Capturando la Armonía entre Naturaleza y Espacio</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-id="project-4">
+                <img src="./imagenes-web/espaciorest.jpg" alt="Proyecto de Espacios">
+                <div class="overlay">
+                    <div class="item-details">
+                        <h3>Fotografía de Interiores</h3>
+                        <p>Capturando la Escencia del Espacio Gastronómico</p>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-id="project-5">
+                <video autoplay muted loop playsinline poster="./imagenes-web/logo.jpg">
+                    <source src="./imagenes-web/reel-vivero.mp4" type="video/mp4">
+                    Tu navegador no soporta el video.
+                </video>
+                <div class="overlay">
+                    <div class="item-details">
+                        <h3>Proyecto Entre Plantas y Vida </h3>
+                        <p>Producción Audiovisual que Captura la Esencia Verde</p>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-id="project-6">
+                <img src="./imagenes-web/imgcorporativa.jpg" alt="Proyecto de Identidad Corporativa">
+                <div class="overlay">
+                    <div class="item-details">
+                        <h3>Fotografía Corporativa</h3>
+                        <p>Menú y Branding en Armonía con la Experiencia Gastronómica</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="load-more-btn-container">
+            <a href="#" class="btn btn-primary" id="load-more-btn">Ver más proyectos</a>
+        </div>
+        
+    </div>
+</section>
+
+<div id="portfolio-modal" class="modal-container">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div class="modal-body">
+            </div>
+    </div>
+</div>
+        <section id="about" class="about">
+    <div class="container about-content">
+        <h2 class="section-title">Nuestra Historia</h2>
+        <p class="section-subtitle">No somos una agencia más. Somos la chispa creativa que hace que tu marca brille con luz propia en el ecosistema digital.</p>
+        
+        <div class="about-story">
+            <p><strong>Glowing Digital</strong> nació de una visión de **Jessica Quevedo**, experta en estrategias digitales, y, a la cual se sumó **Juanjo Ayuso**, un apasionado del cine y el desarrollo web. Nos dimos cuenta de que muchas marcas tenían una historia increíble, pero no la herramienta para contarla. Así que unimos nuestras habilidades para crear una agencia que no solo gestiona, sino que **produce, diseña y cuenta historias memorables.**</p>
+            <p>Nuestra filosofía es simple: creemos en el poder de la conexión humana. Cada proyecto es una oportunidad para entender a fondo a nuestros clientes y construir una solución que no solo cumpla objetivos, sino que cree un impacto real y duradero.</p>
+        </div>
+
+        <div class="member">
+    <img src="./imagenes-web/Jessica.jpg" alt="Foto de Jessica Quevedo, fundadora de Glowing Digital." class="member-photo">
+    <h3>Jessica Quevedo</h3>
+    <p class="member-title">Fundadora, Estratega Digital</p>
+    <p>Con años de experiencia en el mundo del marketing, Jessica lidera la parte estratégica, asegurando que cada campaña esté alineada con los objetivos de negocio.</p>
+</div>
+<div class="member">
+    <img src="./imagenes-web/Juanjo.jpg" alt="Foto de Juanjo Ayuso, cofundador de Glowing Digital." class="member-photo">
+    <h3>Juanjo Ayuso</h3>
+    <p class="member-title">Cofundador, Filmmaker & Web Developer</p>
+    <p>La mente técnica y creativa detrás de la producción audiovisual y el desarrollo web. Juanjo convierte conceptos en realidad, cuidando cada detalle visual.</p>
+</div>
+    </div>
+</section>
+
+        <section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">¡Hablemos!</h2>
+        <p class="section-subtitle">Listo para hacer brillar tu marca? Contáctanos.</p>
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Asunto:</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+        </form>
+    </div>
+</section>
+    </main>
+
+   <footer class="main-footer">
+    <div class="container footer-content">
+        <div class="footer-info">
+            <h3 class="footer-logo">Glowing Digital</h3>
+            <p>Estrategias de marketing digital, branding y producción audiovisual.</p>
+            <p>Marbella, España</p>
+            <a href="https://wa.me/34674896035" class="whatsapp-link" target="_blank">+34 674 896 035</a>
+        </div>
+       <div class="social-links">
+    <a href="https://www.instagram.com/glowingdigital___/" target="_blank" aria-label="Ir al perfil de Instagram de Glowing Digital">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Glowing Digital. Todos los derechos reservados.</p>
+    </div>
+</footer>
+<div id="message-modal" class="modal-message">
+    <div class="modal-content-message">
+        <span class="close-btn-message">&times;</span>
+        <div class="message-body-content">
+            <!-- El mensaje se inyecta aquí dinámicamente -->
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,894 @@
+/* --- VARIABLES Y ESTILOS GLOBALES --- */
+
+:root {
+    /* Paleta de colores basada en tu logo */
+    --primary-color: #FF5722; /* Naranja vibrante original, ahora usado como fallback */
+    --secondary-color: #333; /* Gris oscuro para texto y elementos principales */
+    --background-color: #f7f7f7; /* Gris muy claro para el fondo */
+    --text-light-color: #666; /* Gris más claro para texto secundario */
+    --white: #ffffff;
+    --black: #000000;
+
+    /* Degradado de colores para elementos clave */
+    --gradient: linear-gradient(to right, #57BAD7, #F5DE70);
+
+    /* Tipografía */
+    --font-heading: 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'Arial', sans-serif;
+
+    /* Espaciado */
+    --padding-section: 80px 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-padding-top: 80px; /* Asegura que el scroll se detenga debajo del header fijo */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--secondary-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- ESTILOS GENERALES DE LA PÁGINA --- */
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.8rem; }
+
+p {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    color: var(--text-light-color);
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--gradient);
+    color: var(--white);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid #57BAD7;
+    color: #57BAD7;
+}
+
+.btn-secondary:hover {
+    background: var(--gradient);
+    color: var(--white);
+    border: none;
+}
+
+/* --- ESTILOS ESPECÍFICOS DE SECCIONES --- */
+
+/* Header y Navegación */
+.main-header {
+    background-color: var(--white);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* Estilo para el botón de hamburguesa (visible solo en móviles) */
+.nav-toggle {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+    display: none; /* Oculto por defecto en escritorio */
+    z-index: 1001; /* Asegura que esté por encima del menú */
+}
+
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    /* Aplica el degradado al texto del logo */
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 25px;
+}
+
+.main-nav a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #57BAD7;
+}
+
+.btn-contact {
+    /* Aplica el degradado al botón de contacto */
+    background: var(--gradient);
+    color: var(--white) !important;
+    padding: 8px 18px;
+    border-radius: 50px;
+    transition: transform 0.3s ease;
+}
+
+.btn-contact:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección Hero (Inicio) */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--padding-section);
+    position: relative;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Este es el cambio clave */
+    z-index: -1;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* Ajustes para el contenido de texto sobre el video */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: var(--white);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    color: var(--white);
+    background: none;
+    -webkit-text-fill-color: unset;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    text-fill-color: unset;
+}
+
+.hero p {
+    color: var(--white);
+}
+
+.hero .btn-primary {
+    background: var(--gradient);
+}
+
+
+/* Servicios */
+.services, .portfolio-teaser, .about, .contact {
+    padding: var(--padding-section);
+}
+
+.service-item {
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 15px;
+    background-color: var(--white);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.service-item img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+/* Portafolio Teaser */
+.portfolio-teaser {
+    background-color: var(--background-color);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Sobre Nosotros */
+.about {
+    background-color: var(--white);
+    text-align: center;
+}
+
+.team-members {
+    text-align: center;
+    justify-content: center;
+}
+
+.member {
+    padding: 20px;
+}
+
+.member-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #57BAD7;
+}
+
+/* Contacto */
+.contact {
+    background-color: var(--background-color);
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #57BAD7;
+}
+
+.contact .btn-primary {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+}
+
+.main-footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+/* Nuevo CSS para el fondo de video */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Envía el video al fondo */
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Asegura que el video cubra todo el contenedor */
+}
+
+/* Ajustes para el contenido de texto sobre el video */
+.hero-content {
+    position: relative;
+    z-index: 1; /* Asegura que el contenido esté sobre el video */
+    color: var(--white); /* Cambia el color del texto para que contraste con el video */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* Agrega sombra para mejorar la legibilidad */
+}
+
+/* Y ajustamos el color del título y el degradado para que se vean bien */
+.hero h1 {
+    -webkit-text-fill-color: var(--white);
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    text-fill-color: unset;
+    background: none;
+    color: var(--white);
+}
+
+.hero p {
+    color: var(--white);
+}
+
+.hero .btn-primary {
+    background: var(--gradient); /* Mantiene el degradado en el botón */
+}
+/* Sección Portafolio */
+/* Sección Portafolio */
+.portfolio-full {
+    padding: var(--padding-section);
+    background-color: var(--white);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    justify-items: center; /* Centra los items en la cuadrícula */
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    max-width: 500px; /* **¡ESTA ES LA REGLA CLAVE!** Limita el tamaño de cada ítem */
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item img,
+.portfolio-item video { /* Regla para imágenes y videos */
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.portfolio-item:hover img,
+.portfolio-item:hover video {
+    transform: scale(1.05);
+}
+
+.portfolio-link {
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.portfolio-item:hover .overlay {
+    opacity: 1;
+}
+
+.item-details {
+    text-align: center;
+    color: var(--white);
+    padding: 20px;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.portfolio-item:hover .item-details {
+    transform: translateY(0);
+}
+
+.item-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--white);
+}
+
+.item-details p {
+    font-size: 1rem;
+    color: #f7f7f7;
+    margin: 0;
+}
+.item-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--white);
+}
+
+.item-details p {
+    font-size: 1rem;
+    color: #f7f7f7;
+    margin: 0;
+}
+/* Nuevo estilo para videos en el portafolio */
+.portfolio-item video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.portfolio-item:hover video {
+    transform: scale(1.05);
+}
+/* Estilos para la ventana modal */
+
+.modal-container {
+    display: none; /* OCULTA la modal por defecto */
+    position: fixed;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro semi-transparente */
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+    max-width: 900px; /* Tamaño máximo de la modal */
+}
+
+/* Animación para que la modal aparezca */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--primary-color);
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body img,
+.modal-body video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.modal-body h3 {
+    text-align: center;
+}
+
+.modal-body p {
+    text-align: left;
+}
+/* Estilos para los iconos de servicio */
+/* Estilos para los iconos de servicio */
+.service-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.service-icon .fas {
+    font-size: 30px; /* Tamaño del icono */
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.service-item:hover .service-icon {
+    transform: translateY(-5px);
+    background-color: var(--primary-color);
+}
+
+.service-item:hover .service-icon .fas {
+    color: var(--white);
+}
+
+/* Ajustes a la tarjeta de servicio */
+.service-item {
+    padding: 40px 20px; /* Aumenta el padding para mejor espaciado */
+}
+/* Estilos para la historia en la sección 'Sobre Nosotros' */
+.about-story {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.about-story p {
+    font-size: 1.1rem;
+    color: var(--text-light-color);
+}
+
+.about-story strong {
+    color: var(--secondary-color);
+}
+
+.member-title {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+/* --- ESTILOS DEL FOOTER --- */
+.main-footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 40px 0 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.footer-info p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+/* Estilos para el enlace de WhatsApp y el icono de Instagram en el footer */
+.whatsapp-link {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.whatsapp-link:hover {
+    -webkit-text-fill-color: #F5DE70;
+}
+
+.social-links a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a .fab {
+    font-size: 24px;
+    color: var(--white);
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover .fab {
+    color: #F5DE70;
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #999;
+}
+/* Estilos para el botón "Cargar más" */
+.load-more-btn-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Ocultar los elementos del portafolio que no deben ser visibles inicialmente */
+.portfolio-item {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Mostrar solo los primeros 3 (o los que quieras) al cargar la página */
+.portfolio-item.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ajuste de color del enlace de WhatsApp en el footer */
+.whatsapp-link {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.whatsapp-link:hover {
+    -webkit-text-fill-color: #F5DE70; /* Color al pasar el cursor */
+}
+.modal-message {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.modal-content-message {
+    background: linear-gradient(135deg, #1f2937, #111827);
+    color: #f3f4f6;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    animation: scaleIn 0.3s ease-out;
+}
+
+.close-btn-message {
+    color: #9ca3af;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn-message:hover,
+.close-btn-message:focus {
+    color: #e5e7eb;
+}
+
+.message-body-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.message-body-content p {
+    font-size: 1rem;
+    color: #d1d5db;
+    margin-bottom: 0;
+}
+
+/* Animación de brillo para el mensaje de éxito */
+@keyframes glow-success {
+    0% { box-shadow: 0 0 5px rgba(34, 197, 94, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(34, 197, 94, 0.4); }
+}
+
+/* Animación para el mensaje de error */
+@keyframes glow-error {
+    0% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.4); }
+}
+
+.modal-content-message.success {
+    animation: glow-success 1.5s infinite alternate, scaleIn 0.3s ease-out;
+}
+
+.modal-content-message.error {
+    animation: glow-error 1.5s infinite alternate, scaleIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); }
+    to { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    /* Muestra el botón de hamburguesa en pantallas pequeñas */
+    .nav-toggle {
+        display: block;
+    }
+
+    /* Oculta la navegación normal */
+    .main-nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        animation: slideIn 0.5s ease-in-out forwards;
+    }
+    
+    /* Muestra el menú cuando tiene la clase 'active' */
+    .main-nav.active {
+        display: flex;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav li {
+        margin: 20px 0;
+    }
+
+    .main-nav a {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    /* Animación para el menú al abrirse */
+    @keyframes slideIn {
+        from { transform: translateX(100%); }
+        to { transform: translateX(0); }
+    }
+}
