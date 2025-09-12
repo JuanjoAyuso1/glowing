@@ -306,12 +306,18 @@ p {
 }
 
 .member-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 3px solid #57BAD7;
+width: 150px;
+height: 150px;
+border-radius: 50%;
+object-fit: cover;
+margin-bottom: 15px;
+border: 3px solid #57BAD7;
+filter: grayscale(100%);
+transition: filter 0.3s ease;
+}
+.member-photo:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
 }
 
 /* Contacto */
