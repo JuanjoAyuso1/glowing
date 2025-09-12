@@ -197,6 +197,20 @@ document.addEventListener('DOMContentLoaded', () => {
             type: 'image',
             media: './imagenes-web/imgcorporativa.jpg',
             description:  'Fotografía corporativa para un restaurante, enfocándose en la presentación del menú y elementos de branding. Las imágenes se utilizaron en materiales impresos y digitales, ayudando a fortalecer la identidad de la marca y atraer a una clientela más amplia.'
+        },
+        'project-7': {
+            title: 'Campaña de Video Casupo Café',
+            type: 'video',
+            media: './imagenes-web/aperol.mp4',
+            poster: './imagenes-web/logo.jpg',
+            description: 'Producción audiovisual de una especialidad de cocktail para Casupo Café, destacando los ingredientes frescos y el proceso de preparación. El video se utilizó en redes sociales y promociones, logrando aumentar la visibilidad del producto y atraer a más clientes al establecimiento.'
+        },
+        'project-8': {
+            title: 'Proyecto de Identidad Visual para centro de micropigmentación',
+            type: 'video',
+            media: './imagenes-web/reelNoemi.mp4',
+            poster: './imagenes-web/logo.jpg',
+            description: 'Desarrollo de identidad visual y producción audiovisual para un centro de micropigmentación, creando un reel que resalta la precisión y el arte del servicio ofrecido. El contenido se utilizó en campañas de marketing digital, logrando posicionar al centro como líder en su sector.'
         }
     };
 
