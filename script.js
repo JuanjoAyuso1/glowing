@@ -300,9 +300,27 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('DOMContentLoaded', () => {
         const cookieBanner = document.getElementById('cookie-banner');
         const acceptButton = document.getElementById('accept-cookies');
-        const moreInfoButton = document.getElementById('more-info-btn'); // Botón de Más información
+        const moreInfoButton = document.getElementById('more-info-btn'); 
         const cookiesModal = document.getElementById('cookies-policy-modal');
         const closeButtons = document.querySelectorAll('.close-btn');
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        let visibleItemsCount = 4;
+        
+        // --- CÓDIGO AÑADIDO PARA ANIMACIÓN AL HACER SCROLL ---
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section-title, .section-subtitle').forEach(el => {
+            scrollObserver.observe(el);
+        });
+        // --- FIN DEL CÓDIGO AÑADIDO ---
 
         const hasCookie = (name) => {
             return document.cookie.split(';').some((item) => item.trim().startsWith(name + '='));
@@ -344,5 +362,32 @@ document.addEventListener('DOMContentLoaded', () => {
             if (event.target === cookiesModal) {
                 cookiesModal.style.display = 'none';
             }
+        });
+        
+        // --- CÓDIGO AÑADIDO PARA EL BOTÓN "VER MÁS PROYECTOS" ---
+        loadMoreBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            
+            // Simular un estado de carga
+            loadMoreBtn.classList.add('loading');
+            loadMoreBtn.textContent = 'Cargando';
+            
+            setTimeout(() => {
+                let itemsToReveal = 4;
+                for (let i = visibleItemsCount; i < visibleItemsCount + itemsToReveal && i < portfolioItems.length; i++) {
+                    portfolioItems[i].classList.add('visible', 'fade-in');
+                }
+                
+                visibleItemsCount += itemsToReveal;
+                
+                if (visibleItemsCount >= portfolioItems.length) {
+                    loadMoreBtn.style.display = 'none';
+                }
+                
+                // Restablecer el botón
+                loadMoreBtn.classList.remove('loading');
+                loadMoreBtn.textContent = 'Ver más proyectos';
+
+            }, 1000); // Simula una carga de 1 segundo
         });
     });

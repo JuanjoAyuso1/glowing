@@ -1014,3 +1014,57 @@ transition: filter 0.3s ease;
         flex: 1;
     }
 }
+/* Efecto hover para botones */
+.btn-primary:hover, .btn-contact:hover, .btn-cookie:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(255, 87, 34, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover para elementos de servicio */
+.service-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación de "revelado" para títulos de sección */
+.section-title, .section-subtitle {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-title.is-visible, .section-subtitle.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación para los nuevos ítems del portafolio */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.portfolio-item.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Estilo para el botón de "Ver más proyectos" en estado de carga */
+#load-more-btn.loading {
+    cursor: not-allowed;
+    background-color: #555;
+}
+
+#load-more-btn.loading:after {
+    content: "...";
+    animation: loadingDots 1s infinite;
+}
+
+@keyframes loadingDots {
+    0% { content: "."; }
+    33% { content: ".."; }
+    66% { content: "..."; }
+}
