@@ -296,3 +296,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+// JavaScript para el manejo de cookies y el modal
+    document.addEventListener('DOMContentLoaded', () => {
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptButton = document.getElementById('accept-cookies');
+        const moreInfoButton = document.getElementById('more-info-btn'); // Botón de Más información
+        const cookiesModal = document.getElementById('cookies-policy-modal');
+        const closeButtons = document.querySelectorAll('.close-btn');
+
+        const hasCookie = (name) => {
+            return document.cookie.split(';').some((item) => item.trim().startsWith(name + '='));
+        };
+
+        const setCookie = (name, value, days) => {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        };
+
+        if (!hasCookie('cookiesAccepted')) {
+            cookieBanner.classList.remove('hidden');
+        } else {
+            cookieBanner.classList.add('hidden');
+        }
+
+        acceptButton.addEventListener('click', () => {
+            setCookie('cookiesAccepted', 'true', 365); // La cookie expira en un año
+            cookieBanner.classList.add('hidden');
+        });
+
+        // Evento para mostrar el modal de cookies
+        moreInfoButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            cookiesModal.style.display = 'block';
+        });
+
+        // Evento para cerrar el modal
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                cookiesModal.style.display = 'none';
+            });
+        });
+
+        // Cerrar el modal si se hace clic fuera de él
+        window.addEventListener('click', (event) => {
+            if (event.target === cookiesModal) {
+                cookiesModal.style.display = 'none';
+            }
+        });
+    });
